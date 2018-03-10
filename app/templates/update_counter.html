@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Sign In</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div>
+            <p>
+                {{ form.player_1.label }}<br>
+                {{ form.player_1(size=32) }}<br>
+                {% for error in form.player_1.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.score_1.label }}<br>
+                {{ form.score_1(size=2) }}<br>
+                {% for error in form.score_1.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+        </div>
+        <div>
+            <p>
+                {{ form.player_2.label }}<br>
+                {{ form.player_2(size=32) }}<br>
+                {% for error in form.player_2.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.score_2.label }}<br>
+                {{ form.score_2(size=3) }}
+                {% for error in form.score_2.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+        </div>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
