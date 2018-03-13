@@ -1,3 +1,5 @@
+{% extends "bootstrap/base.html" %}
+
 <html>
 
 <head>
@@ -10,14 +12,9 @@
 
 <body>
     <div>
-        Counter:
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('update_counter') }}">Counter</a>
-        {% if current_user.is_anonymous %}
-        <a href="{{ url_for('login') }}">Login</a>
-        {% else %}
-        <a href="{{ url_for('logout') }}">Logout</a>
-        {% endif %}
+        :
+
+
     </div>
     <hr> {% with messages = get_flashed_messages() %} {% if messages %}
     <ul>
@@ -25,7 +22,36 @@
         <li>{{ message }}</li>
         {% endfor %}
     </ul>
-    {% endif %} {% endwith %} {% block content %}{% endblock %}
+    {% endif %} {% endwith %}
+    {% block navbar %}
+
+    <nav class="navbar navbar-default navbar-dark bg-dark">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">The Averno Counter</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('update_counter') }}">Upate a counter</a>
+                    </li>
+                    {% if current_user.is_anonymous %}
+                    <li>
+                        <a href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    {% else %}
+                    <ul class="nav navbar-nav navbar-right">
+                    <li> <a href="{{ url_for('logout') }}">Logout</a></li>
+                    </ul>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
 </body>
 
 </html>

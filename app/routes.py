@@ -74,3 +74,7 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route('/counter')
+def counter():
+    return render_template('counter.html')
