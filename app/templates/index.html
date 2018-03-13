@@ -1,11 +1,17 @@
-
-
-{% extends "base.html" %}
-{% block title %}Index wachin{% endblock %}
-
-{% block content %}
-    <h1>Hi, {{ current_user.username }}!</h1>
-    <h1>Counting on:</h1>
-    <h3>{{match.player_1.name}} : {{match.player_1.score}}</h3>
-    <h3>{{match.player_2.name}} : {{match.player_2.score}}</h3>
-{% endblock %}∫
+ {% extends "base.html" %} {% block title %} Index {% endblock %} {% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>{{match.player_1.name}}</th>
+            <th>{{match.player_2.name}} </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="info">
+            <td>{{match.player_1.score}}</td>
+            <td>{{match.player_2.score}}</td>
+        </tr>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
